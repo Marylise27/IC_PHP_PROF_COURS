@@ -28,6 +28,7 @@ class ProfCoursTest extends TestCase
     // cours
     private $intitule="Intégratoin continue"; //a remplir
     private $duree="3h";    //a remplir
+    private $prof_number=2;
 
     private static $prof_a = [];
     private static $cours_a = [];
@@ -310,7 +311,7 @@ class ProfCoursTest extends TestCase
         $this->assertTrue($val, "Update du prof num $idProf ...\n");
 
         // Cours
-        $cours = new Cours($this->intitule, $this->duree);
+        $cours = new Cours($this->intitule, $this->duree, $this->prof_number);
         $val = $cours->updateOne($conn, $idCours);
         $expected_cours_str = $cours->__toString();
         $record_cours = Cours::printOne($conn, $idCours);
